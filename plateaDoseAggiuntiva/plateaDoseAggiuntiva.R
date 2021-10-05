@@ -26,7 +26,9 @@ ggplot(data, aes(x=totale_popolazione, y=reorder(nome_area, totale_popolazione),
     stat = 'summary', fun = sum, show.legend = FALSE,
     position = position_dodge(width = 1), hjust = -.1, size = 8) +
   theme_minimal(base_size = 40) +
-  labs(title = paste0("Platea dose aggiuntiva (aggiornato al ", last_update, ")"),
+  labs(title = paste0("Platea dose aggiuntiva: ", 
+                      comma(sum(data$totale_popolazione), big.mark = ".", decimal.mark = ","),
+                      " (aggiornato al ", last_update, ")"),
        x = "Platea dose aggiuntiva",
        y = "Regione/Provincia Autonoma",
        caption = "Elaborazione V. Nicoletta | Fonte: https://github.com/italia/covid19-opendata-vaccini/blob/master/dati/platea-dose-aggiuntiva.csv") +
