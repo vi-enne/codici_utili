@@ -24,7 +24,7 @@ data <- read.csv("https://raw.githubusercontent.com/ministero-salute/it-dgc-open
 data$data <- as.Date(data$data)
 data <- data[order(data$data),]
 
-png(filename = paste0("greenpass_", Sys.Date(), ".png"), width = 475, height = 250, units='mm', res = 300)
+png(filename = paste0("greenpass_", max(data$data), ".png"), width = 475, height = 250, units='mm', res = 300)
 
 
 ggplot(data, aes(x=data, y=issued_for_tests)) +
