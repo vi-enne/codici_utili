@@ -95,7 +95,7 @@ ui <- fluidPage(
   ),
   
   tags$i(
-    "Discalimer: Si precisa che questa sezione tiene conto esclusivamente delle misure introdotte da disposizioni
+    "Disclaimer: Si precisa che questa sezione tiene conto esclusivamente delle misure introdotte da disposizioni
   nazionali. Le Regioni e le Province autonome possono adottare specifiche ulteriori disposizioni restrittive,
   di carattere locale, per conoscere le quali è necessario fare riferimento ai canali informativi istituzionali
   dei singoli enti."
