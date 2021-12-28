@@ -1,5 +1,7 @@
 # Visualizzazione attività consentite senza Green Pass, con Green Pass base e/o con Green Pass rafforzato
 # Fonte: https://www.governo.it/sites/governo.it/files/tabella_attivita_consentite.pdf
+# https://www.governo.it/sites/governo.it/files/documenti/documenti/Notizie-allegati/tabella_attivita_consentite.pdf
+# https://www.gazzettaufficiale.it/eli/id/2021/12/24/21G00244/sg
 
 
 library(readxl)
@@ -7,7 +9,7 @@ library(DT)
 library(shiny)
 library(shinythemes)
 
-attivita <- as.data.frame(read_xlsx("attivita.xlsx"))
+attivita <- as.data.frame(read_xlsx("attivita-v2.xlsx"))
 specifiche <- as.data.frame(read_xlsx("specifiche.xlsx"))
 data <- merge(attivita, specifiche)
 
@@ -53,7 +55,7 @@ server <- function(input, output, session) {
 
 ui <- fluidPage(
   theme = shinytheme('readable'),
-  headerPanel(title = "Attività consentite senza Green Pass, con Green Pass base e/o con Green Pass rafforzato 6/12/2021 al 15/1/2022"),
+  headerPanel(title = "Attività consentite senza Green Pass, con Green Pass base e/o con Green Pass rafforzato"),
   
   radioButtons(
     "type",
@@ -87,10 +89,19 @@ ui <- fluidPage(
     ),
     " | ",
     tags$a(
-      href = 'https://www.governo.it/sites/governo.it/files/tabella_attivita_consentite.pdf',
+      href = 'https://www.governo.it/sites/governo.it/files/documenti/documenti/Notizie-allegati/tabella_attivita_consentite.pdf',
       "Tabella attività consentite",
       target = "_blank"
     ),
+    " | ",
+    tags$a(
+      href = 'https://www.gazzettaufficiale.it/eli/id/2021/12/24/21G00244/sg',
+      "Decreto Legge 221/21",
+      target = "_blank"
+    ),
+    
+    
+   
     
   ),
   
