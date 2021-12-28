@@ -93,10 +93,10 @@ ggplot(tamponiTOT2[tamponiTOT2$data>"2021-07-31",], aes(x=data, y = diff)) +
        y = "",
        caption = paste0("Elaborazione grafica V. Nicoletta | Fonte: Ministero Salute, Protezione Civile | CC-BY-4.0")
   ) +
-  annotate("text", x = as.Date("2021-09-15"), y = 200000, size = 8,
+  annotate("text", x = as.Date("2021-09-01"), y = 200000, size = 8,
            label = "Dall'11 ottobre 2021 i Green Pass emessi per test negativo \n sono sempre maggiori dei Tamponi Effettuati") +
-  annotate("curve", x = as.Date("2021-09-20"), xend = as.Date("2021-10-11"), y = 170000, yend = 100000, 
-           size=1, curvature = 0.15, arrow = arrow(length = unit(10, "mm"))) +
+  annotate("curve", x = as.Date("2021-09-05"), xend = as.Date("2021-10-11"), y = 170000, yend = 100000, 
+           size=1, curvature = 0.15, arrow = arrow(length = unit(5, "mm"))) +
   annotate("text", x = as.Date("2021-08-30"), y = -70000, size = 8, label = "Green Pass < Tamponi", col = "#f8766d") +
   annotate("text", x = as.Date("2021-09-15"), y =  80000, size = 8, label = "Green Pass > Tamponi", col = "#00bfc4")
 
