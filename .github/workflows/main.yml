@@ -9,7 +9,7 @@ on:
 
 
 jobs: 
-  update_rt:
+  update:
     # The type of runner that the job will run on
     runs-on: macos-latest
 
