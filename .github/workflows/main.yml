@@ -1,0 +1,47 @@
+# Scraping
+name: update Hosp Umbria
+
+# Controls when the action will run.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 */1 * * *'
+
+
+jobs: 
+  update:
+    # The type of runner that the job will run on
+    runs-on: macos-latest
+
+    # Load repo and install R
+    steps:
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@master
+
+    # Set-up R
+    - name: Install packages
+      run: |
+        R -e 'install.packages(c("data.table", "tidyr", "qdapRegex", "curl"))'
+    # Run R script
+    - name: Update hosp Umbria
+      run: Rscript hospUmbria/hospUmbria.R
+
+     
+ # Add new files in data folder, commit along with other modified files, push
+    - name: Commit files
+      run: |
+          echo "Checking data on: `date`"
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "New update available"
+            git config --local user.name actions-user
+            git config --local user.email "actions@github.com"
+            git add hospUmbria/*
+            git commit -am "Update data - $(date)"
+            git push origin main
+          else
+            echo "no changes to commit"
+          fi
+      env:
+        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+        username: github-actions
+        TZ: Europe/Rome
