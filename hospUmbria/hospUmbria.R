@@ -36,6 +36,6 @@ umbriaPlot <- umbria[, c("data", "ricoverati_AM_covid", "note")]
 colnames(umbriaPlot)[2] <- "Ricoverati positivi NON TI in discipline di Area Medica (qui intesi PER Covid-19)"
 colnames(umbriaPlot)[3] <- "Ricoverati positivi NON TI in discipline NON di Area Medica (qui intesi CON Covid-19)"
 
-write.csv(umbriaPlot, file = "umbriaHosp.csv", row.names = F)
+write.csv(umbriaPlot, file = "hospUmbria/umbriaHosp.csv", row.names = F)
   
 
