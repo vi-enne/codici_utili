@@ -29,10 +29,10 @@ if(n>0){
   
   for(i in 1:n){
     res$Data[i]   <- temp$created_at[i]
-    res$Totale[i] <- as.numeric(str_extract(temp$text[i],"[0-9]+(?= le)"))
-    res$Donne[i]  <- as.numeric(str_extract(temp$text[i],"[0-9]+(?= donne)"))
-    res$Uomini[i] <- as.numeric(str_extract(temp$text[i],"[0-9]+(?= uomini)"))
-    res$Minori[i] <- as.numeric(str_extract(temp$text[i],"[0-9]+(?= minori)"))
+    res$Totale[i] <- as.numeric(str_extract(temp$text[i],"[0-9]+(?=\\s*le)"))
+    res$Donne[i]  <- as.numeric(str_extract(temp$text[i],"[0-9]+(?=\\s*donne)"))
+    res$Uomini[i] <- as.numeric(str_extract(temp$text[i],"[0-9]+(?=\\s*uomini)"))
+    res$Minori[i] <- as.numeric(str_extract(temp$text[i],"[0-9]+(?=\\s*minori)"))
   }
   
   res$Data <- as.character(as.Date(res$Data))
