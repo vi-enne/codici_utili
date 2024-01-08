@@ -19,9 +19,11 @@ umbria$noteClean[umbria$data=="2021-07-06"] <- 1
 umbria$noteClean[umbria$data=="2021-12-24"] <- 0
 umbria$noteClean[umbria$data=="2022-01-13"] <- 5
 
-
 temp <- qdapRegex::ex_between(umbria$note[umbria$data>="2022-01-25"], "i fa presente che ", " dei ricoveri")
 umbria$noteClean[umbria$data>="2022-01-25"] <- unlist(lapply(temp, function(x) sum(as.numeric(x))))
+
+temp <- (stringr::str_extract(umbria$note[umbria$data>="2023-12-06"], stringr::regex("(\\d+)(?!.*\\d)")))
+umbria$noteClean[umbria$data>="2023-12-06"] <- unlist(lapply(temp, function(x) sum(as.numeric(x))))
 
 umbria$noteClean <- sub("uno", "1", umbria$noteClean) 
 umbria$noteClean <- sub("due", "2", umbria$noteClean) 
