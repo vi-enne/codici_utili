@@ -25,6 +25,8 @@ umbria$noteClean[umbria$data>="2022-01-25"] <- unlist(lapply(temp, function(x) s
 temp <- (stringr::str_extract(umbria$note[umbria$data>="2023-12-06"], stringr::regex("(\\d+)(?!.*\\d)")))
 umbria$noteClean[umbria$data>="2023-12-06"] <- unlist(lapply(temp, function(x) sum(as.numeric(x))))
 
+umbria$noteClean[umbria$data=="2024-01-04"] <- 99
+
 umbria$noteClean <- sub("uno", "1", umbria$noteClean) 
 umbria$noteClean <- sub("due", "2", umbria$noteClean) 
 umbria$noteClean <- sub("tre", "3", umbria$noteClean) 
