@@ -6,5 +6,6 @@ df   <- stream_in(file(jsonl_file))
 df$tipo <- ifelse(df$quorum < 5*10^5, "Legge di iniziativa popolare", "Referendum abrogativo")
 df$url <- paste0("[",df$url,"](", df$url, ")")
 df$sito <- paste0("[",df$sito,"](", df$sito, ")")
+df$percentualeQuorum <- paste0(round(df$sostenitori/df$quorum * 100,2), "%")
 
 write.csv(df, "piattaformaFirme/firmeReferendum.csv", row.names = F)
