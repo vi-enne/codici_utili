@@ -14,6 +14,6 @@ year <- as.Date(paste0(substr(df$dataApertura, 1, 4), "-09-30"))
 df$dataFineRaccolta <- as.Date(df$dataFineRaccolta)
 df$dataFineRaccolta <- ifelse((df$dataFineRaccolta > year) & (df$tipo == "Referendum abrogativo"), year, df$dataFineRaccolta)
 df$dataFineRaccolta <- as.Date(df$dataFineRaccolta, origin = "1970-01-01")
-df$status <- ifelse(df$dataFineRaccolta >= Sys.Date(), "In corso", "Terminata")
+df$status <- ifelse(df$dataFineRaccolta >= Sys.Date(), "In corso", "Conclusa")
 
 write.csv(df, "piattaformaFirme/firmeReferendum.csv", row.names = F)
