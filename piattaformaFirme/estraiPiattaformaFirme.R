@@ -18,4 +18,6 @@ df$dataFineRaccolta <- ifelse((df$dataApertura < year) & (df$dataFineRaccolta > 
 df$dataFineRaccolta <- as.Date(df$dataFineRaccolta, origin = "1970-01-01")
 df$status <- ifelse(df$dataFineRaccolta >= Sys.Date(), "In corso", "Conclusa")
 
+df <- df[order(df$dataApertura, decreasing = T),]
+
 write.csv(df, "piattaformaFirme/firmeReferendum.csv", row.names = F)
