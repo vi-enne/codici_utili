@@ -18,6 +18,9 @@ df$dataFineRaccolta <- ifelse((df$dataApertura < year) & (df$dataFineRaccolta > 
                               year, df$dataFineRaccolta)
 df$dataFineRaccolta <- as.Date(df$dataFineRaccolta, origin = "1970-01-01")
 df$status <- ifelse(df$dataFineRaccolta >= Sys.Date(), "In corso", "Conclusa")
+df$color <- ifelse(df$sostenitori/df$quorum >=1 , "success", 
+                   ifelse(df$status == "In corso" , "wait",
+                          "fail"))
 
 df <- df[order(df$dataApertura, decreasing = T),]
 
