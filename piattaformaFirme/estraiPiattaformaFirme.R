@@ -35,14 +35,14 @@ if (dataPatch) {
     ifelse(
       df$tipo == "Referendum abrogativo",
       ifelse(
-        df$dataFineRaccolta < as.Date(df$dataInizioRaccolta) + 90,
+        df$dataFineRaccolta < as.Date(df$dataInizioRaccolta) + 91,
         df$dataFineRaccolta,
-        as.Date(df$dataInizioRaccolta) + 90
+        as.Date(df$dataInizioRaccolta) + 91
       ),
       ifelse(
-        df$dataFineRaccolta < as.Date(df$dataInizioRaccolta) + 180,
+        df$dataFineRaccolta < as.Date(df$dataInizioRaccolta) + 183,
         df$dataFineRaccolta,
-        as.Date(df$dataInizioRaccolta) + 180
+        as.Date(df$dataInizioRaccolta) + 183
       )
     )
   df$dataFineRaccolta <-
