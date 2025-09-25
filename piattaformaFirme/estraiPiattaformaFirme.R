@@ -1,5 +1,5 @@
 library(jsonlite)
-dataPatch <- F
+dataPatch <- T
 jsonl_file <-
   "https://raw.githubusercontent.com/ondata/liberiamoli-tutti/main/referendum_iniziative_popolare/data/referendum_iniziative_popolare.jsonl"
 
