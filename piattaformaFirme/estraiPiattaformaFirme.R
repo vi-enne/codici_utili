@@ -29,7 +29,7 @@ df$dataFineRaccolta <-
   )
 df$dataFineRaccolta <-
   as.Date(df$dataFineRaccolta, origin = "1970-01-01")
-df$tipo[df$estremi==3900004] <- "Referendum costituzionale"
+df$tipo[df$estremi==3900004] <- "Referendum confermativo"
 
 if (dataPatch) {
   df$dataFineRaccolta <-
